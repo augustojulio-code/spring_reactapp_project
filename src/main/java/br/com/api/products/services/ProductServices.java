@@ -34,4 +34,24 @@ public class ProductServices {
         }
 
     }
+
+    public ResponseEntity<?> updateInsert(Products products, String action) {
+        if (products.getName().equals("")) {
+            responseH.setMsg("o nome do produto é obrigatorio");
+            return new ResponseEntity<ResponseH>(responseH, HttpStatus.BAD_REQUEST);
+        } else if (products.getBrand().equals("")) {
+            responseH.setMsg("o nome da marca é obrigatorio");
+            return new ResponseEntity<ResponseH>(responseH, HttpStatus.BAD_REQUEST);
+        } else {
+
+            if (action.equals("insert")) {
+
+                return new ResponseEntity<Products>(repository.save(products), HttpStatus.CREATED);
+            } else {
+                return new ResponseEntity<Products>(repository.save(products), HttpStatus.OK);
+            }
+        }
+
+    }
+
 }
