@@ -54,4 +54,11 @@ public class ProductServices {
 
     }
 
+    public ResponseEntity<ResponseH> delete(Long id) {
+        repository.deleteById(id);
+        responseH.setMsg("Produto removido");
+
+        return new ResponseEntity<ResponseH>(responseH, HttpStatus.OK);
+    }
+
 }
