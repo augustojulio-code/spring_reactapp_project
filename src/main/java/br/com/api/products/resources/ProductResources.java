@@ -18,7 +18,7 @@ import br.com.api.products.services.ProductServices;
 
 @RestController
 @RequestMapping("/products")
-@CrossOrigin(origins = "http//localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000/")
 public class ProductResources {
 
     @Autowired
